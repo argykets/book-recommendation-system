@@ -20,7 +20,7 @@ async def read_root(request: Request):
         "author": list(popular_df['Book-Author'].values),
         "image": list(popular_df['Image-URL-M'].values),
         "votes": list(popular_df['Number of Ratings'].values),
-        "rating": list(popular_df['Avg Rating'].values)
+        "rating": list(np.round(popular_df['Avg Rating'].values, 2))
     })
 
 @app.get("/recommend")
